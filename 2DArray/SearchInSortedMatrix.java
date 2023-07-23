@@ -13,13 +13,13 @@ public class SearchInSortedMatrix {
         int i = matrix.length-1;
         int j = 0;
         while(true) {
-            if(matrix[i][j] == key) {
-                System.out.println("Key found in matrix.");
-                break;
-            }
-            else if(i < 0 || j > matrix.length-1) {
+            if(i < 0 || j > matrix.length-1) {
                 
                 System.out.println("Key not found in matrix.");
+                break;
+            }
+            else if(matrix[i][j] == key) {
+                System.out.println("Key found in matrix.");
                 break;
             }
             else if(matrix[i][j] < key) {
@@ -32,7 +32,8 @@ public class SearchInSortedMatrix {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);       
-        int matrix[][] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        // int matrix[][] = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        int matrix[][] = {{1,2,3,},{5,6,7,},{9,10,11,}};
         printMatrix(matrix);
         int key = sc.nextInt();
         searchInSortedMatrix(matrix,key);
