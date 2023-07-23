@@ -31,6 +31,6 @@ public class First {
         System.out.print("Enter Key:");
         int key = sc.nextInt();
         printMatrix(matrix);
-        System.out.println("Key found: "+searchKey(matrix, key));
+        // System.out.println("Key found: "+searchKey(matrix, key));
     }
 }
