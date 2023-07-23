@@ -12,23 +12,36 @@ public class SearchInSortedMatrix {
     public static void searchInSortedMatrix(int matrix[][], int key) {
         int i = matrix.length-1;
         int j = 0;
-        while(true) {
-            if(i < 0 || j > matrix.length-1) {
-                
-                System.out.println("Key not found in matrix.");
-                break;
-            }
-            else if(matrix[i][j] == key) {
+        while(i >= 0 && j<matrix.length) {
+            if(matrix[i][j] == key) {
                 System.out.println("Key found in matrix.");
-                break;
+                return;
             }
             else if(matrix[i][j] < key) {
                 j++;
             }
-            else if(matrix[i][j] > key) {
+            else {
                 i--;
             }
         }
+        System.out.println("Key not found in matrix.");
+        // while(true) {
+        //     if(i < 0 || j > matrix.length-1) {
+                
+        //         System.out.println("Key not found in matrix.");
+        //         break;
+        //     }
+        //     else if(matrix[i][j] == key) {
+        //         System.out.println("Key found in matrix.");
+        //         break;
+        //     }
+        //     else if(matrix[i][j] < key) {
+        //         j++;
+        //     }
+        //     else if(matrix[i][j] > key) {
+        //         i--;
+        //     }
+        // }
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);       
