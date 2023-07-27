@@ -25,16 +25,20 @@ public class First {
         ArrayList<Integer>list = new ArrayList<>();
 
         list.add(1);
-        list.add(2);
-        list.add(3);
         list.add(4);
+        list.add(3);
+        list.add(8);
         list.add(4,5);
         // printReverse(list);
         // printMax(list);
-        swapNumber(list, 1, 03);
+        // swapNumber(list, 1, 03);
         // System.out.println(list);
 
-
+        System.out.println(list);
+        Collections.sort(list);
+        System.out.println(list);
+        Collections.sort(list, Collections.reverseOrder());
+        System.out.println(list);
 
         // ArrayList<String>list2 = new ArrayList<>();
         // ArrayList<Boolean>list3 = new ArrayList<>();
