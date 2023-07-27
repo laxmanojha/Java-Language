@@ -12,22 +12,28 @@ public class First {
         list.add(3);
         list.add(4);
         list.add(1,10); //O(n)
-        System.out.println("List: "+list);
+        // System.out.println("List: "+list);
 
         //Get method O(1) 
-        System.out.println("Get element: "+list.get(4));
+        // System.out.println("Get element: "+list.get(4));
 
         //Set method O(n)
         list.set(1, 5);
-        System.out.println("Set element: "+list);
+        // System.out.println("Set element: "+list);
 
         //Remove method O(n)
         // int a = list.remove(1);
-        System.out.println("removed element: "+list.remove(1));
-        System.out.println("List: "+list);
+        // System.out.println("removed element: "+list.remove(1));
+        // System.out.println("List: "+list);
 
         //Contains element O(n)
-        System.out.println("Contains: "+list.contains(10));
-        System.out.println("Contains: "+list.contains(2));
+        // System.out.println("Contains: "+list.contains(10));
+        // System.out.println("Contains: "+list.contains(2));
+
+        //Size method O(n)
+        System.out.println(list.size());
+        for(int i=0;i<list.size();i++) {
+            System.out.print(list.get(i)+" ");
+        }
     }
 }
