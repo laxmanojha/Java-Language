@@ -7,6 +7,13 @@ public class First {
         }
         System.out.println();
     }
+    public static void printMax(ArrayList<Integer>list) {
+        int max = Integer.MIN_VALUE;
+        for(int i = list.size()-1 ; i>=0;i--) {
+            max = Math.max( max, list.get(i));
+        }
+        System.out.println("Max element is: "+max);
+    }
     public static void main(String[] args) {
         ArrayList<Integer>list = new ArrayList<>();
 
@@ -16,6 +23,7 @@ public class First {
         list.add(4);
         list.add(4,5);
         printReverse(list);
+        printMax(list);
         // System.out.println(list);
 
 
