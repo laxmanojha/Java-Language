@@ -14,6 +14,13 @@ public class First {
         }
         System.out.println("Max element is: "+max);
     }
+    public static void swapNumber(ArrayList<Integer>list, int index1 , int index2) {
+        System.out.println("Before Swapping: "+list);
+        int temp = list.get(index1);
+        list.set(index1, list.get(index2));
+        list.set(index2, temp);
+        System.out.println("After Swapping: "+list);
+    }
     public static void main(String[] args) {
         ArrayList<Integer>list = new ArrayList<>();
 
@@ -22,8 +29,9 @@ public class First {
         list.add(3);
         list.add(4);
         list.add(4,5);
-        printReverse(list);
-        printMax(list);
+        // printReverse(list);
+        // printMax(list);
+        swapNumber(list, 1, 03);
         // System.out.println(list);
 
 
