@@ -42,36 +42,49 @@ public class pairSum {
     public static boolean optimizedSortedAndRotatedPairSum(ArrayList<Integer>list, int target) {
         int lp = 0;
         int rp = 0;
+        int n = list.size();
         for(int i=0;i<list.size()-1;i++) {
             if(list.get(i)>list.get(i+1)) {
-                rp = i+1;
-                lp = i;
+                lp = i+1;
+                rp = i;
                 break;
             }
         }
         // System.out.println(lp+" "+rp);
-        while(lp != rp) {
+        while(lp!=rp) {
             if(list.get(lp)+list.get(rp) == target) {
                 return true;
             }
             else if(list.get(lp)+list.get(rp) < target) {
-                if(rp+1 == list.size()) {
-                    rp = 0;
-                }
-                else {
-                    rp++;
-                }
+                lp = (lp+1)%n;
             }
             else {
-                if(lp-1 == -1) {
-                    lp = list.size()-1;
-                }
-                else {
-                    lp--;
-                }
+                rp = (n+rp-1)%n;
             }
         }
         return false;
+        // while(lp != rp) {
+        //     if(list.get(lp)+list.get(rp) == target) {
+        //         return true;
+        //     }
+        //     else if(list.get(lp)+list.get(rp) < target) {
+        //         if(rp+1 == list.size()) {
+        //             rp = 0;
+        //         }
+        //         else {
+        //             rp++;
+        //         }
+        //     }
+        //     else {
+        //         if(lp-1 == -1) {
+        //             lp = list.size()-1;
+        //         }
+        //         else {
+        //             lp--;
+        //         }
+        //     }
+        // }
+        // return false;
     }
     public static void main(String[] args) {
         ArrayList<Integer>list = new ArrayList<>(
@@ -80,8 +93,8 @@ public class pairSum {
         // System.out.println("Pair sum exists: "+bruteForce(list, 12));
         // System.out.println("Pair sum exists: "+optimizedPairSum(list, 12));
         System.out.println("List: "+list);
-        System.out.println("Pair sum exists: "+bruteForceSortedAndRotatedPairSum(list, 17));
-        System.out.println("Pair sum exists: "+optimizedSortedAndRotatedPairSum(list, 17));
+        System.out.println("Pair sum exists: "+bruteForceSortedAndRotatedPairSum(list, 16));
+        System.out.println("Pair sum exists: "+optimizedSortedAndRotatedPairSum(list, 16));
 
 
 
