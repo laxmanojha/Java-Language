@@ -133,13 +133,66 @@ public class LinkedList {
     public static int recSearchKey(Node curr, int index, int key) {
         if(curr == null)
            return -1;
-        
+
         if(curr.data == key) return index;
 
         return recSearchKey(curr.next, index+1, key);
 
     }
+    public static void reverseList() {
+        Node prev = null;
+        Node curr = tail = head;
+        Node Next = null;
+        while(curr != null) {
+            Next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = Next;
+        }
+        head = prev;
+    }
+    public static void checkPalindrome() {
+        int length = lengthOfList();
+        if(length == 1) {
+            System.out.println("This is palindrome.");
+            return;
+        }
+        int index = 0;
+        Node head1,tail1,head2,tail2;
+        head1 = tail1 = head;
+        head2 = tail2 = null;
+        while(index < (length/2)-1) {
+            tail1 = tail1.next;
+            index++;
+        }
+        if(length%2 == 0)
+            head2 = tail1.next;
+        else 
+            head2 = tail1.next.next;
+        tail1.next = null;
+        head = head2;
+        // print();
+        // head = head1;
+        // tail = tail1;
+        // print();
+        // head = head2;
+        reverseList();
+        head2 = head;
+        tail2 = tail;
+        head = head1;
+        while(head2!=null) {
+            if(head1.data != head2.data) {
+                System.out.println("This is not palindrome!");
+                return;
+            }
+            head1 = head1.next;
+            head2 = head2.next;
+        }
+        System.out.println("This is palindrome.");
+    }
     public static void main(String[] args) {
+
+        // LinkedList ll = new LinkedList();
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Size:");
@@ -149,13 +202,18 @@ public class LinkedList {
             addLast(data);
         }
         print();
+        checkPalindrome();
+        // reverseList();
+        // print();
         // System.out.println("Length is: "+lengthOfList());
-        int key = sc.nextInt();
-        // Node curr = head;
-        int index = 0;
-        System.out.println("Key found at: "+itrSearchKey(key));
-        System.out.println("Key found at: "+recSearchKey(head,index,key));
-        print();
+        // int key = sc.nextInt();
+        // // Node curr = head;
+        // int index = 0;
+        // System.out.println("Key found at: "+itrSearchKey(key));
+        // System.out.println("Key found at: "+recSearchKey(head,index,key));
+        // print();
+
+
         // int pos;
         // System.out.print("Enter position to add: ");
         // pos = sc.nextInt();
