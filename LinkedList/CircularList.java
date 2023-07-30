@@ -59,20 +59,29 @@ public class CircularList {
         Node slow = head;
         Node fast = head;
         Node prev = null;
+        boolean flag = false;
         while(fast!=null&&fast.next!=null) {
             slow = slow.next;
             fast = fast.next.next;
             if(slow == fast) {
                 slow = head;
-                while(slow != fast) {
-                    slow = slow.next;
-                    prev = fast;
-                    fast = fast.next;
-                }
+                flag = true;
                 break;
             }
         }
-        prev.next = null;
+        if(flag) {
+            System.out.println("Loop Detected!");
+            while(slow != fast) {
+                slow = slow.next;
+                prev = fast;
+                fast = fast.next;
+            }
+            prev.next = null;
+            System.out.println("Loop removed, successfully!");
+        }
+        else {
+            System.out.println("Loop not Detected!");
+        }
     }
 
     public static void main(String[] args) {
@@ -83,9 +92,9 @@ public class CircularList {
             int data = sc.nextInt();
             addLast(data);
         }
-        tail.next = head.next.next.next;
-        // print();
+        tail.next = head.next.next;
         System.out.println(detectLoop());
+        // print();
         removeLoop();
         System.out.println(detectLoop());
         print();
