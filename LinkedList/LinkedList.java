@@ -119,20 +119,44 @@ public class LinkedList {
             curr.next = null;
         }
     }
+    public static int itrSearchKey(int key) {
+        Node curr = head;
+        int index = 0;
+        while(curr != null) {
+            if(curr.data == key)
+                return index;
+            curr = curr.next;
+            index++;
+        }
+        return -1;
+    }
+    public static int recSearchKey(Node curr, int index, int key) {
+        if(curr == null)
+           return -1;
+        
+        if(curr.data == key) return index;
+
+        return recSearchKey(curr.next, index+1, key);
+
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Size:");
         int size = sc.nextInt();
-        int pos;
         for(int i=0;i<size;i++) {
             int data = sc.nextInt();
             addLast(data);
         }
         print();
-        System.out.println("Length is: "+lengthOfList());
-
-
+        // System.out.println("Length is: "+lengthOfList());
+        int key = sc.nextInt();
+        // Node curr = head;
+        int index = 0;
+        System.out.println("Key found at: "+itrSearchKey(key));
+        System.out.println("Key found at: "+recSearchKey(head,index,key));
+        print();
+        // int pos;
         // System.out.print("Enter position to add: ");
         // pos = sc.nextInt();
         // if(pos > lengthOfList()+1)
@@ -147,11 +171,11 @@ public class LinkedList {
         //     System.out.println("Length is: "+lengthOfList());
         // }
         
-        System.out.print("Enter position to remove: ");
-        pos = sc.nextInt();
-        removeAtPosition(pos);
-        print();
-        System.out.println("Length is: "+lengthOfList());
+        // System.out.print("Enter position to remove: ");
+        // pos = sc.nextInt();
+        // removeAtPosition(pos);
+        // print();
+        // System.out.println("Length is: "+lengthOfList());
 
 
         // for(int i=1;i<=size;i++) {
