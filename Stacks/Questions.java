@@ -69,6 +69,7 @@ public class Questions {
         s.push(2);
         s.push(3);
 
+        //QUESTION 4
         int stock[] = {100,80,60,70,60,85,100};
         int span[] = new int[stock.length];
         stockSpanProblem(stock,span);
