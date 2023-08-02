@@ -10,15 +10,18 @@ public class StackByArrayList {
             list.add(data);
         }
         public int pop() {
+            if(list.isEmpty()) return -1;
             return list.remove(list.size()-1);
         }
         public int peek() {
+            if(list.isEmpty()) return -1;
             return list.get(list.size()-1);
         }
     }
     public static void main(String[]args) {
         Stack s = new Stack();
         System.out.println(Stack.list);
+        System.out.println(s.peek());
         System.out.println(s.isEmpty());
         s.push(1);
         s.push(2);
