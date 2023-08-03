@@ -79,6 +79,39 @@ public class Questions {
             s.push(i);
         }
         return ans;
+
+        //Next Right Greater
+        //Next Left Greater
+        //Next Right Smaller
+        //Next Left Smaller
+    }
+    public static boolean validParanthese(String str) {
+        Stack<Character>st = new Stack<>();
+        for(int i=0;i<str.length();i++) {
+            Character ch = str.charAt(i);
+            if(ch == '('||ch == '{'||ch == '[') {
+                st.push(ch);
+            }
+            else {
+                if(st.isEmpty()) {
+                    return false;
+                }
+                if(st.peek()=='('&&ch==')'
+                ||st.peek()=='{'&&ch=='}'
+                ||st.peek()=='['&&ch==']') {
+                    st.pop();
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        if(st.isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     public static void main(String[] args) {
         Stack<Integer>s = new Stack<>();
@@ -86,13 +119,17 @@ public class Questions {
         s.push(2);
         s.push(3);
 
-        //QUESTION 5
+        //QUESTION 6 
+        String str = "({[]})[])";
+        System.out.println(validParanthese(str));
+
+        /*QUESTION 5
         // int arr[] = {6,8,0,1,3};
         int arr[] = {4,6,4,2,9,9};
         int[] ans = nextGreater(arr);
         for(int i=0;i<ans.length;i++) {
             System.out.print(ans[i]+" ");
-        }
+        }*/
 
         /*QUESTION 4
         int stock[] = {100,80,60,70,60,85,100};
