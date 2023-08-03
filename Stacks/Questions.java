@@ -63,19 +63,44 @@ public class Questions {
             s.push(i);
         }
     }
+    public static int[] nextGreater(int[] arr) {
+        Stack<Integer> s = new Stack<>();
+        int[] ans = new int[arr.length]; //4,6,4,2,9,9 //6 8 0 1 3
+        for(int i = arr.length-1;i>=0;i--) {
+            while(!s.isEmpty() && arr[s.peek()] <= arr[i]) {
+                s.pop();
+            }
+            if(s.isEmpty()) {
+                ans[i] = -1;
+            }
+            else {
+                ans[i] = arr[s.peek()];// 6 9 9 9 -1 -1     // 8 -1 1 3 -1
+            }
+            s.push(i);
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         Stack<Integer>s = new Stack<>();
         s.push(1);
         s.push(2);
         s.push(3);
 
-        //QUESTION 4
+        //QUESTION 5
+        // int arr[] = {6,8,0,1,3};
+        int arr[] = {4,6,4,2,9,9};
+        int[] ans = nextGreater(arr);
+        for(int i=0;i<ans.length;i++) {
+            System.out.print(ans[i]+" ");
+        }
+
+        /*QUESTION 4
         int stock[] = {100,80,60,70,60,85,100};
         int span[] = new int[stock.length];
         stockSpanProblem(stock,span);
         for(int i=0;i<span.length;i++) {
             System.out.print(span[i]+" ");
-        }
+        }*/
 
         /*QUESTION 3
         printStack(s);
