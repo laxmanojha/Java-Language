@@ -85,7 +85,7 @@ public class Questions {
         //Next Right Smaller
         //Next Left Smaller
     }
-    public static boolean validParanthese(String str) {
+    public static boolean validParantheses(String str) {
         Stack<Character>st = new Stack<>();
         for(int i=0;i<str.length();i++) {
             Character ch = str.charAt(i);
@@ -121,7 +121,7 @@ public class Questions {
 
         //QUESTION 6 
         String str = "({[]})[])";
-        System.out.println(validParanthese(str));
+        System.out.println(validParantheses(str));
 
         /*QUESTION 5
         // int arr[] = {6,8,0,1,3};
