@@ -113,15 +113,41 @@ public class Questions {
             return false;
         }
     }
+    public static boolean duplicateParantheses(String str) {
+        Stack<Character>st = new Stack<>();
+        for(int i=0;i<str.length();i++) { //((a+b)+(c+d))
+            Character ch = str.charAt(i);
+            if(ch!=')') {
+                st.push(ch);
+            }           // 
+            else {
+                if(st.peek()=='(' && ch==')') {
+                    return true;
+                }
+                while(!st.isEmpty()) {
+                    st.pop();
+                    if(st.peek()=='(' && ch==')') {
+                        st.pop();
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Stack<Integer>s = new Stack<>();
         s.push(1);
         s.push(2);
         s.push(3);
 
-        //QUESTION 6 
+        //QUESTION 7
+        String str = "((a+b)+(a+b))";
+        System.out.println("\nDuplicate parantheses: "+duplicateParantheses(str)+"\n");
+
+        /*QUESTION 6 
         String str = "({[]})[])";
-        System.out.println(validParantheses(str));
+        System.out.println(validParantheses(str));*/
 
         /*QUESTION 5
         // int arr[] = {6,8,0,1,3};
