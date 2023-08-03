@@ -142,7 +142,7 @@ public class Questions {
         s.push(3);
 
         //QUESTION 7
-        String str = "((a+b)+(a+b))";
+        String str = "((a+b))";
         System.out.println("\nDuplicate parantheses: "+duplicateParantheses(str)+"\n");
 
         /*QUESTION 6 
