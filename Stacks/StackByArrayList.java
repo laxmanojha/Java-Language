@@ -29,6 +29,6 @@ public class StackByArrayList {
         System.out.println(s.peek());
         System.out.println(s.pop());
         System.out.println(s.peek());
-        System.out.println(s.list);
+        System.out.println(Stack.list);
     }
 }
