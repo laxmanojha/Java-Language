@@ -13,7 +13,6 @@ public class byStack {
 
 class Queue {
     Stack<Integer>s = new Stack<>();
-
     public void pushAtBottom(Stack<Integer>s, int data) {
         if(s.isEmpty()) {
             s.push(data);
@@ -27,7 +26,18 @@ class Queue {
         return s.isEmpty();
     }
     public void add(int data) {
-        pushAtBottom(s, data);
+        //Queue using single Stack
+        // pushAtBottom(s, data);
+
+        //Queue using two stack
+        Stack<Integer> st = new Stack<>();
+        while(!s.isEmpty()) {
+            st.push(s.pop());
+        }
+        s.push(data);
+        while(!st.isEmpty()) {
+            s.push(st.pop());
+        }
     }
     public int remove() {
         if(s.isEmpty()) return -1;
