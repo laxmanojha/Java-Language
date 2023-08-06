@@ -98,25 +98,19 @@ class Stack {
     }
     public int peek() {
         if(isEmpty()) return -1;
-        int topData=0;
+        int data=0;
         if(!q1.isEmpty()) {
             while(!q1.isEmpty()) {
-                int data = q1.remove();
-                if(q1.isEmpty()) {
-                    topData = data;
-                } 
+                data = q1.remove();
                 q2.add(data);
             }
         }
         else {
             while(!q2.isEmpty()) {
-                int data = q2.remove();
-                if(q2.isEmpty()) {
-                    topData = data;
-                } 
+                data = q2.remove();
                 q1.add(data);
             }
         }
-        return topData;
+        return data;
     }
 }
