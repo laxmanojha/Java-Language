@@ -10,6 +10,9 @@ public class Questions {
             boolean flag = true;
             freq[input.charAt(i)-97]++;
             queue.add(input.charAt(i));
+            //while(!queue.isEmpty() && freq[queue.peek()-97] > 1){
+            //     queue.pop();
+            // }
             while(!queue.isEmpty()) {
                 if(freq[queue.peek()-97] == 1) {
                     ans.append(queue.peek()); // a -1 b b b b x
