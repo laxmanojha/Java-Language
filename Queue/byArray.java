@@ -1,29 +1,40 @@
 public class byArray {
     
     public static void main(String[] args) {
-        cicularQueue queue = new cicularQueue(5);
-        System.out.println(queue.isEmpty());
-        queue.add(10);
-        queue.add(20);
-        queue.add(30);
-        queue.add(40);
-        queue.add(50);
-        queue.add(60);
-        System.out.println(queue.isEmpty());
-        System.out.println(queue.peek());
-        // System.out.println(queue.remove());
+        circularQueue queue = new circularQueue(3);
+        queue.add(1);queue.add(2);queue.add(3);
+        System.out.println(queue.remove());
+        queue.add(4);
+        System.out.println(queue.remove());
+        queue.add(5);
         while(!queue.isEmpty()) {
-            System.out.print(queue.remove()+" ");
+            System.out.println(queue.remove()+" ");
         }
-        System.out.println(queue.isEmpty());
+
+        // circularQueue queue = new circularQueue(5);
+        // System.out.println(queue.isEmpty());
+        // queue.add(10);
+        // queue.add(20);
+        // queue.add(30);
+        // queue.add(40);
+        // queue.add(50);
+        // queue.add(60);
+        // System.out.println(queue.isEmpty());
+        // System.out.println(queue.peek());
+        // // System.out.println(queue.remove());
+        // while(!queue.isEmpty()) {
+        //     System.out.print(queue.remove()+" ");
+        // }
+        // System.out.println(queue.isEmpty());
+        // System.out.println(queue.peek());
     }
 }
-class cicularQueue{
+class circularQueue{
     int first;
     int last;
     int size;
     int[] arr;
-    cicularQueue(int data) {
+    circularQueue(int data) {
         arr = new int[data];
         last = -1;
         first = 0;
@@ -54,7 +65,7 @@ class cicularQueue{
             last = -1;
             return data;
         }
-        first = first+1%size;
+        first = (first+1)%size;
         return data;
         // while(first != last-1%size) {
         //     int next = first+1%size;
