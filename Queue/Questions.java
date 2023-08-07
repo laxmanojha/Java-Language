@@ -29,29 +29,29 @@ public class Questions {
         }
         return ans.toString();
     }
-    public static void InterLeaveHalves(Queue<Integer>firstHalf, Queue<Integer>secondHalf,Queue<Integer>ans) {
-        if(firstHalf.isEmpty() && secondHalf.isEmpty()) {
+    public static void InterLeaveHalves(Queue<Integer>firstHalf,Queue<Integer>ans) {
+        if(firstHalf.isEmpty()) {
             return;
         }
 
         ans.add(firstHalf.remove());
-        ans.add(secondHalf.remove());
-        InterLeaveHalves(firstHalf, secondHalf, ans);
+        ans.add(ans.remove());
+        InterLeaveHalves(firstHalf, ans);
     }
     public static void main(String[] args) {
 
         Queue<Integer> ans = new LinkedList<>();
         Queue<Integer> firstHalf = new LinkedList<>();
-        Queue<Integer> secondHalf = new LinkedList<>();
+        // Queue<Integer> secondHalf = new LinkedList<>();
         for(int i=1;i<=10;i++) {
             if(i<=5) {
                 firstHalf.add(i);
             }
             else {
-                secondHalf.add(i);
+                ans.add(i);
             }
         }
-        InterLeaveHalves(firstHalf, secondHalf, ans);
+        InterLeaveHalves(firstHalf, ans);
         for(int i=0;i<ans.size();i++) {
             int temp = ans.remove();
             ans.add(temp);
