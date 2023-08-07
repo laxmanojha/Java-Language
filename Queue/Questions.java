@@ -38,8 +38,34 @@ public class Questions {
         ans.add(ans.remove());
         InterLeaveHalves(firstHalf, ans);
     }
+    public static void reverseQueue(Queue<Integer>queue) {
+        if(queue.isEmpty()) {
+            return;
+        }
+        int data = queue.remove();
+        reverseQueue(queue);
+        queue.add(data);
+    }
     public static void main(String[] args) {
 
+        /* 
+        Question 
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0;i<5;i++) {
+            queue.add((i+1)*10);
+        }
+        System.out.println(queue);
+        reverseQueue(queue);
+        System.out.println(queue);
+
+        for(int i=0;i<queue.size();i++) {
+            int temp = queue.remove();
+            System.out.print(temp+" ");
+            queue.add(temp);
+        }
+        */
+
+        /*Question
         Queue<Integer> ans = new LinkedList<>();
         Queue<Integer> firstHalf = new LinkedList<>();
         // Queue<Integer> secondHalf = new LinkedList<>();
@@ -57,7 +83,7 @@ public class Questions {
             ans.add(temp);
             System.out.print(temp+" ");
 
-        }
+        } */
 
         /*Question 
         String input = "aabccxb";
