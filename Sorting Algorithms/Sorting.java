@@ -53,17 +53,41 @@ public class Sorting {
             list.set(j+1, temp);
         }
     }
+    public static void CountingSort(ArrayList<Integer> list) {
+        int max = Integer.MIN_VALUE;
+        for(int i:list) {
+            if(max<i)   
+                max=i;
+        }
+        int[] arr = new int[max+1];
+        for(int i: list) {
+            arr[i]++;
+        }
+        int j=0;
+        for(int i=0;i<arr.length;i++) {
+            while(arr[i]!=0) {
+                list.set(j++, i);
+                arr[i]--;
+            }
+        }
+        System.out.println(list);
+    }
     public static void main(String[] args) {
         ArrayList<Integer> arr = new ArrayList<>(){
             {
-                add(2);add(1);add(18);add(9);add(0);
+                add(7);add(5);add(4);add(7);add(4);
+                add(2);add(1);add(2);add(7);add(4);
+                add(6);add(1);add(2);add(3);add(3);
             }
         };
         System.out.println(arr);
-        InsertionSort(arr);
-        System.out.println(arr);
+        CountingSort(arr);
         
         /* SORTING ALGO's
+
+        InsertionSort(arr);
+        System.out.println(arr);
+
         SelectionSort(arr);
         BubbleSort(arr);
         // int[] array = {2,5,6,9,0};
