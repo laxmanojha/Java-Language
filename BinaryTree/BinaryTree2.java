@@ -43,12 +43,33 @@ public class BinaryTree2 {
             return 0;
         }
         int ld = diameterOfTree(root.left);
-        int rd = diameterOfTree(root.right);
         int lh = heightOfTree(root.left);
+        int rd = diameterOfTree(root.right);
         int rh = heightOfTree(root.right);
         int selfd = lh+rh+1;
-        return Math.max(selfd,Math.max(ld,rd));
+        return Math.max(Math.max(ld,rd),selfd);
     }
+    static class Info {
+        int diam;
+        int ht;
+        public Info(int diam,int ht) {
+            this.diam = diam;
+            this.ht = ht;
+        }
+    }
+    public static Info diameterOfTree2(Node root) {
+        if(root == null) {
+            return new Info(0,0);
+        }
+        Info leftInfo = diameterOfTree2(root.left);
+        Info rightInfo = diameterOfTree2(root.right);
+
+        int diam = Math.max(Math.max(leftInfo.diam, rightInfo.diam), leftInfo.ht+rightInfo.ht+1);
+        int ht = Math.max(leftInfo.ht, rightInfo.ht)+1;
+
+        return new Info(diam,ht);
+    }
+
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
@@ -57,5 +78,6 @@ public class BinaryTree2 {
         System.out.println();
         System.out.println(heightOfTree(root));
         System.out.println(diameterOfTree(root));
+        System.out.println(diameterOfTree2(root).ht+" "+diameterOfTree2(root).diam);
     }
 }
