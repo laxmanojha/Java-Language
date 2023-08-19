@@ -87,10 +87,36 @@ public class BinaryTree3 extends BinaryTree {
         if(right == null) {
             return left;
         }
-        if(left != null && right != null) {
-            return root;
-        }
+
         return root;
+    }
+    public static int getDist(Node root, int n) {
+        if(root == null) {
+            return -1;
+        }
+        if(root.data == n) {
+            return 0;
+        }
+        int dist1 = getDist(root.left, n);
+        int dist2 = getDist(root.right,n);
+        if(dist1 == -1 && dist2 == -1) {
+            return -1;
+        }
+        else if(dist2 == -1) {
+            return dist1+1;
+        }
+        else
+            return dist2+1;
+        
+    }
+    public static int minDistance(Node root,int n1, int n2) {
+        if(root == null) {
+            return -1;
+        }
+        Node lca = lca2(root, n1, n2);
+        int dist1 = getDist(lca, n1);
+        int dist2 = getDist(lca,n2);
+        return dist1+dist2;
     }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
@@ -101,6 +127,7 @@ public class BinaryTree3 extends BinaryTree {
         // kthLevel(root, 3);
         // System.out.println();
         // preOrderKthLevel(root, 1, 2);
-        System.out.println(lca2(root, 4, 6).data);
+        // System.out.println(lca2(root, 4, 6).data);
+        System.out.println(minDistance(root, 4, 4));
     }
 }
