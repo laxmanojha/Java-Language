@@ -118,6 +118,24 @@ public class BinaryTree3 extends BinaryTree {
         int dist2 = getDist(lca,n2);
         return dist1+dist2;
     }
+    public static int kthAncestor(Node root, int n, int k) {
+        if(root == null) {
+            return -1;
+        }
+        if(root.data == n) {
+            return 0;
+        }
+        int dist1 = kthAncestor(root.left, n, k);
+        int dist2 = kthAncestor(root.right, n, k);
+        if(dist1 == -1 && dist2 == -1) {
+            return -1;
+        }
+        int max = Math.max(dist1,dist2);
+        if(max+1 == k) {
+            System.out.println(root.data);
+        }
+        return max+1;
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
@@ -128,6 +146,7 @@ public class BinaryTree3 extends BinaryTree {
         // System.out.println();
         // preOrderKthLevel(root, 1, 2);
         // System.out.println(lca2(root, 4, 6).data);
-        System.out.println(minDistance(root, 4, 4));
+        // System.out.println(minDistance(root, 4, 4));
+        kthAncestor(root, 4,2);
     }
 }
