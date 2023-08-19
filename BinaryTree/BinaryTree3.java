@@ -136,6 +136,16 @@ public class BinaryTree3 extends BinaryTree {
         }
         return max+1;
     }
+    public static int sumTree(Node root) {
+        if(root == null) {
+            return 0;
+        }
+        int lns = sumTree(root.left);
+        int rns = sumTree(root.right);
+        int rootData = root.data;
+        root.data = lns+rns;
+        return rootData+lns+rns;
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
@@ -147,6 +157,8 @@ public class BinaryTree3 extends BinaryTree {
         // preOrderKthLevel(root, 1, 2);
         // System.out.println(lca2(root, 4, 6).data);
         // System.out.println(minDistance(root, 4, 4));
-        kthAncestor(root, 4,2);
+        // kthAncestor(root, 4,2);
+        System.out.println(sumTree(root));
+        tree.preOrder(root);
     }
 }
