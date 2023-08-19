@@ -75,6 +75,23 @@ public class BinaryTree3 extends BinaryTree {
 
         return path1.get(i-1);
     }
+    public static Node lca2(Node root, int n1, int n2) {
+        if(root == null || root.data == n1 || root.data == n2) {
+            return root;
+        }
+        Node left = lca2(root.left,n1,n2);
+        Node right = lca2(root.right, n1, n2);
+        if(left == null) {
+            return right;
+        }
+        if(right == null) {
+            return left;
+        }
+        if(left != null && right != null) {
+            return root;
+        }
+        return root;
+    }
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,6,-1,-1,7,-1,-1};
@@ -84,6 +101,6 @@ public class BinaryTree3 extends BinaryTree {
         // kthLevel(root, 3);
         // System.out.println();
         // preOrderKthLevel(root, 1, 2);
-        System.out.println(lca(root, 1, 1).data);
+        System.out.println(lca2(root, 4, 6).data);
     }
 }
