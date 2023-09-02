@@ -74,16 +74,23 @@ public class StackUsingTwoQueues {
         }
     }
     public static void main(String[] args) {
-        Stack st = new Stack();
-        System.out.println(st.isEmpty());
-        System.out.println(st.peek());
-        st.push(1);
-        st.push(2);
-        st.push(3);
-        st.push(4);
-        System.out.println(st.peek());
-        while(!st.isEmpty()) {
-            System.out.println(st.pop());
-        }
+        // Stack st = new Stack();
+        // System.out.println(st.isEmpty());
+        // System.out.println(st.peek());
+        // st.push(1);
+        // st.push(2);
+        // st.push(3);
+        // st.push(4);
+        // System.out.println(st.peek());
+        // while(!st.isEmpty()) {
+        //     System.out.println(st.pop());
+        // }
+        // HashMap<Integer,Integer>map = new HashMap<>();
+        // map.put(10,0);
+        // map.put(20,1);
+        // map.put(30,2);
+        // map.put(40,3);
+        // map.forEach((k,v) -> System.out.println(k+" "+v));
+        
     }
 }
